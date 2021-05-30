@@ -1,0 +1,51 @@
+Use this token to access the HTTP API:
+Production:
+1607787626:AAG99KuPjVyz7KBGk-yEfc1cDlQJVDB1wvM
+
+Testing:
+1612315305:AAEEdr39iDM7-py8sQgnnHeUo94IVgqpyQc
+
+-- Update Webhook API
+https://api.telegram.org/bot1612315305:AAEEdr39iDM7-py8sQgnnHeUo94IVgqpyQc/setWebhook?url=https://f52a872a883a.ngrok.io
+
+-- ngrok Authtoken
+1p3bUfuncyPbtSjrgMtidNaLP0S_7rxy7S7u2emUyYCAnKFxr
+
+-- Start main.py with monitor
+nodemon main.py
+
+-- Useful example
+timerbot.py
+nestedconversationbot.py
+conversationbot.py
+
+-- BSC API
+4QSV7C4QP84VEEVWYUBJXMRI1Y1Z8AJ53H
+
+
+-- Heroku 
+heroku logs --tail
+
+
+git add .
+git commit -am "V2.3.9"
+git push heroku master
+
+
+- Resetting a git repository
+heroku plugins:install heroku-repo
+heroku repo:reset --app {appname}
+
+- Bot command
+start - Start this bot
+buy - Add coin(s) to the HODL list
+sell - Remove coins(s) from HODL list
+coinlist - List all coins HODL in group
+hold - Show your holding coin(s) 
+note - Tag coin holders with message
+help - Show help command
+
+
+==Delete==
+HKTV, RV, BPIS, MER
+

@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+
+[packages]
+python-telegram-bot = "==12.4.2"
+requests = "*"
+firebase = "*"
+python-jwt = "*"
+gcloud = "*"
+sseclient = "*"
+pycryptodome = "*"
+requests-toolbelt = "*"
+configparser = "*"
+pycoingecko = "*"
+
+[requires]
+python_version = "3"

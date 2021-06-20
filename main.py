@@ -335,10 +335,10 @@ def future(update: Update, context: CallbackContext) -> None:
     
     if len(context.args) == 4:
         side = ""
-        p = int(context.args[0])
-        loss = int(context.args[1])
-        sp = int(context.args[2])
-        sl = int(context.args[3])
+        p = float(context.args[0])
+        loss = float(context.args[1])
+        sp = float(context.args[2])
+        sl = float(context.args[3])
         amount = (p*(loss/100))/(sp-sl)
         light = {'green':'\U0001F7E2', 'red':'\U0001F534'}
 
@@ -349,7 +349,7 @@ def future(update: Update, context: CallbackContext) -> None:
             side = "Short"
             color = light['red']
 
-        resStr = ("<u><b><i>{} Position</i></b></u> {}\n計算方式:\n({}*{})/({}-{})\n\n建議倉位: <b>{}</b>\n\n Remark:\n<pre>倉位負數 = Short, 倉位正數 = Long</pre>").format(side, color, p, str(loss)+"%", sp, sl, amount)
+        resStr = ("<u><b><i>{} Position</i></b></u> {}\n計算方式: (本金*可接受損失百份比)/(開倉價-止蝕價)\n\n你個情況: ({}*{})/({}-{})\n建議倉位: <b>{}</b>\n\n Remark:\n<pre>倉位負數 = Short, 倉位正數 = Long</pre>").format(side, color, p, str(loss)+"%", sp, sl, amount)
     else:
         resStr = "Formula:(本金*可接受損失百份比)/(開倉價-止蝕價) \n Format Error \n E.g. /future 1000 2 2250 2240"    
 

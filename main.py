@@ -326,6 +326,36 @@ def alertCoinHolder(update: Update, context: CallbackContext) -> None:
     else:
         update.message.reply_text(resStr, parse_mode="HTML", disable_web_page_preview=True)
 
+def future(update: Update, context: CallbackContext) -> None:
+    """Calculate Future"""
+    print("future")
+    chat_id = str(update.effective_chat.id)
+    userid = update.message.from_user.id
+    resStr = ""
+    
+    if len(context.args) == 4:
+        side = ""
+        p = int(context.args[0])
+        loss = int(context.args[1])
+        sp = int(context.args[2])
+        sl = int(context.args[3])
+        amount = (p*(loss/100))/(sp-sl)
+        light = {'green':'\U0001F7E2', 'red':'\U0001F534'}
+
+        if amount > 0:
+            side = "Long"
+            color = light['green']
+        else:
+            side = "Short"
+            color = light['red']
+
+        resStr = ("<u><b><i>{} Position</i></b></u> {}\n計算方式:\n({}*{})/({}-{})\n\n建議倉位: <b>{}</b>\n\n Remark:\n<pre>倉位負數 = Short, 倉位正數 = Long</pre>").format(side, color, p, str(loss)+"%", sp, sl, amount)
+    else:
+        resStr = "Formula:(本金*可接受損失百份比)/(開倉價-止蝕價) \n Format Error \n E.g. /future 1000 2 2250 2240"    
+
+    update.message.reply_text(resStr, parse_mode="HTML", disable_web_page_preview=True)
+
+
 # TODO  Phase 2 - OTC Reminder
 # TODO  Phase 3 - My coin list with Price 
 # TODO  Phase 4 - Set timer check wallet 
@@ -476,6 +506,7 @@ def main():
 
     ## Others
     dispatcher.add_handler(CommandHandler("set", setting))
+    dispatcher.add_handler(CommandHandler("future", future))
     dispatcher.add_handler(CommandHandler("help", help_command))
 
     dispatcher.add_handler(CommandHandler("fix", fix))
@@ -487,6 +518,7 @@ def main():
 
     # log all errors
     dispatcher.add_error_handler(error)
+
     # Start the Bot
     # Testing
     # updater.start_polling()

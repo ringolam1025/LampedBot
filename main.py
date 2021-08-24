@@ -99,21 +99,20 @@ def addCoin(update: Update, context: CallbackContext) -> None:
 
         else:
             """ If coin is NOT exist """
-            searchRes = searchCoinIDBySymbol(coin.lower())
-            print(searchRes)
+            searchRes = searchCoinIDBySymbol(coin.lower())            
             if len(searchRes) == 1:
                 res = createNewCoinInDB(chat_id, searchRes[0], username, userid, firebase)
                 resStr += res
 
             elif len(searchRes) > 1:
-                print("B")
                 tmp = []
-                tmpStr = ""
+                tmpStr = ""                
                 for dtl in searchRes:
-                    for platform in dtl['platforms']:
-                        tmp.append(InlineKeyboardButton(dtl['name'], callback_data='add_'+dtl['id']))                    
-                        tmpStr += "<u><b>" + dtl['name'].upper() + "</b></u> (" + platform + ")\n" + dtl['platforms'][platform] + "\n"
-                        tmpStr +=  "\n"        
+                    print(dtl)
+                    # for platform in dtl['platforms']:
+                    tmp.append(InlineKeyboardButton(dtl['name'], callback_data='add_'+dtl['id']))                    
+                    tmpStr += "<u><b>" + dtl['name'].upper() + "</b></u> (" + platform + ")\n" + dtl['platforms'][platform] + "\n"
+                    tmpStr +=  "\n"
 
                 keyboard.append(tmp)
                 reply_markup = InlineKeyboardMarkup(keyboard)

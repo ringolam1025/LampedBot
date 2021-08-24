@@ -1,4 +1,6 @@
 import random
+import logging
+import logging.config
 
 from pycoingecko import CoinGeckoAPI
 
@@ -111,9 +113,11 @@ def sellCoin(chat_id, coin, username, userid, firebase):
 def searchCoinIDBySymbol(symbol):
    """ Use CoinGecko API to get ID by Symbol """
    print("searchCoinIDBySymbol")
+   logger = logging.getLogger(__name__)
    _res = []
    cg = CoinGeckoAPI()
    coinlist = cg.get_coins_list()
+   print(coinlist)
    for coin_dtl in coinlist:
        if coin_dtl['symbol'] == symbol:
            _res.append(coin_dtl)

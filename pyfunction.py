@@ -118,9 +118,8 @@ def searchCoinIDBySymbol(symbol):
     coinlist = cg.get_coins_list()   
     for coin_dtl in coinlist:
         if coin_dtl['symbol'] == symbol:
-            _res.append(coin_dtl)
-    print(_res)       
-   # return _res
+            _res.append(coin_dtl)   
+    return _res
 
 def TMPsearchCoinIDBySymbol(symbol, coinlist):
    """ Use CoinGecko API to get ID by Symbol """

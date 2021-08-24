@@ -100,11 +100,13 @@ def addCoin(update: Update, context: CallbackContext) -> None:
         else:
             """ If coin is NOT exist """
             searchRes = searchCoinIDBySymbol(coin.lower())
+            print(searchRes)
             if len(searchRes) == 1:
                 res = createNewCoinInDB(chat_id, searchRes[0], username, userid, firebase)
                 resStr += res
 
             elif len(searchRes) > 1:
+                print("B")
                 tmp = []
                 tmpStr = ""
                 for dtl in searchRes:

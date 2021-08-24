@@ -24,11 +24,11 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 # Firebase Database setting
-# TOKEN = config['bot_dev']['TOKEN']
-# DBLINK = config['bot_dev']['DBLINK']
+TOKEN = config['bot_dev']['TOKEN']
+DBLINK = config['bot_dev']['DBLINK']
 
-TOKEN = os.environ["TOKEN"]
-DBLINK = os.environ["DBLINK"]
+# TOKEN = os.environ["TOKEN"]
+# DBLINK = os.environ["DBLINK"]
 PORT = int(os.environ.get('PORT', 5000))
 
 firebase = firebase.FirebaseApplication(DBLINK, None)
@@ -105,14 +105,13 @@ def addCoin(update: Update, context: CallbackContext) -> None:
                 resStr += res
 
             elif len(searchRes) > 1:
+                print("B")
                 tmp = []
                 tmpStr = ""                
                 for dtl in searchRes:
                     print(dtl)
-                    # for platform in dtl['platforms']:
                     tmp.append(InlineKeyboardButton(dtl['name'], callback_data='add_'+dtl['id']))                    
-                    tmpStr += "<u><b>" + dtl['name'].upper() + "</b></u> (" + platform + ")\n" + dtl['platforms'][platform] + "\n"
-                    tmpStr +=  "\n"
+                    tmpStr += "<u><b>" + dtl['name'].capitalize() + "</b></u>\n"
 
                 keyboard.append(tmp)
                 reply_markup = InlineKeyboardMarkup(keyboard)
@@ -518,14 +517,14 @@ def main():
 
     # Start the Bot
     # Testing
-    # updater.start_polling()
+    updater.start_polling()
     
     # Production
-    updater.start_webhook(listen="0.0.0.0",
-                        port=int(PORT),
-                        url_path=TOKEN)
-    updater.bot.setWebhook('https://lampedbot.herokuapp.com/' + TOKEN)
-    updater.idle()
+    # updater.start_webhook(listen="0.0.0.0",
+    #                     port=int(PORT),
+    #                     url_path=TOKEN)
+    # updater.bot.setWebhook('https://lampedbot.herokuapp.com/' + TOKEN)
+    # updater.idle()
 
 if __name__ == '__main__':
     main()

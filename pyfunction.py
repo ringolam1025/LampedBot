@@ -116,10 +116,10 @@ def searchCoinIDBySymbol(symbol):
    logger = logging.getLogger(__name__)
    _res = []
    cg = CoinGeckoAPI()
-   coinlist = cg.get_coins_list()
-   print(coinlist)
+   coinlist = cg.get_coins_list()   
    for coin_dtl in coinlist:
        if coin_dtl['symbol'] == symbol:
+           print(symbol)
            _res.append(coin_dtl)
    return _res
 

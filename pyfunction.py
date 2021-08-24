@@ -113,14 +113,14 @@ def sellCoin(chat_id, coin, username, userid, firebase):
 def searchCoinIDBySymbol(symbol):
    """ Use CoinGecko API to get ID by Symbol """
    print("searchCoinIDBySymbol")
-   logger = logging.getLogger(__name__)
    _res = []
    cg = CoinGeckoAPI()
    coinlist = cg.get_coins_list()   
    for coin_dtl in coinlist:
        if coin_dtl['symbol'] == symbol:
            print(coin_dtl)
-           _res.append(coin_dtl)
+           # _res.append(coin_dtl)
+           _res.append({'id': 'banana-finance', 'symbol': 'banana', 'name': 'Banana Finance'})
    return _res
 
 def TMPsearchCoinIDBySymbol(symbol, coinlist):

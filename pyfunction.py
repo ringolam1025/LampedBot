@@ -119,7 +119,7 @@ def searchCoinIDBySymbol(symbol):
    coinlist = cg.get_coins_list()   
    for coin_dtl in coinlist:
        if coin_dtl['symbol'] == symbol:
-           print(symbol)
+           print(coin_dtl)
            # _res.append(coin_dtl)
    return _res
 

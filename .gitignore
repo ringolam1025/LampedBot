@@ -2,3 +2,5 @@ config.ini
 json_sample/
 examples/
 bot.txt
+log/lampBotLog.log
+__pycache__/pyfunction.cpython-37.pyc

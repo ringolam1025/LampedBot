@@ -24,11 +24,11 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 # Firebase Database setting
-TOKEN = config['bot_dev']['TOKEN']
-DBLINK = config['bot_dev']['DBLINK']
+# TOKEN = config['bot_dev']['TOKEN']
+# DBLINK = config['bot_dev']['DBLINK']
 
-# TOKEN = os.environ["TOKEN"]
-# DBLINK = os.environ["DBLINK"]
+TOKEN = os.environ["TOKEN"]
+DBLINK = os.environ["DBLINK"]
 PORT = int(os.environ.get('PORT', 5000))
 
 firebase = firebase.FirebaseApplication(DBLINK, None)

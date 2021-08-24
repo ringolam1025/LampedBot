@@ -111,17 +111,16 @@ def sellCoin(chat_id, coin, username, userid, firebase):
     return _msg
 
 def searchCoinIDBySymbol(symbol):
-   """ Use CoinGecko API to get ID by Symbol """
-   print("searchCoinIDBySymbol")
-   _res = []
-   cg = CoinGeckoAPI()
-   coinlist = cg.get_coins_list()   
-   for coin_dtl in coinlist:
-       if coin_dtl['symbol'] == symbol:
-           print(coin_dtl)
-           _res.append(coin_dtl)
-           return
-   return _res
+    """ Use CoinGecko API to get ID by Symbol """
+    print("searchCoinIDBySymbol")
+    _res = []
+    cg = CoinGeckoAPI()
+    coinlist = cg.get_coins_list()   
+    for coin_dtl in coinlist:
+        if coin_dtl['symbol'] == symbol:
+            _res.append(coin_dtl)
+    print(_res)       
+   # return _res
 
 def TMPsearchCoinIDBySymbol(symbol, coinlist):
    """ Use CoinGecko API to get ID by Symbol """

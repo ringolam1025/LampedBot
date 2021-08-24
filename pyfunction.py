@@ -120,7 +120,7 @@ def searchCoinIDBySymbol(symbol):
        if coin_dtl['symbol'] == symbol:
            print(coin_dtl)
            # _res.append(coin_dtl)
-           _res.append({'id': 'banana-finance', 'symbol': 'banana', 'name': 'Banana Finance'})
+           _res += coin_dtl
    return _res
 
 def TMPsearchCoinIDBySymbol(symbol, coinlist):

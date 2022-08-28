@@ -2,11 +2,11 @@
 LampedBot (This bot) is using python to develop. The purpose of this bot is help user to mark which coins have been bought. And provide price to the user. 
 
 # Main Function
-1. /buy COIN_NAME = 加幣入你個portfolio
-1. /sell COIN_NAME = 係你個portfolio到Remove隻幣
-1. /hold = 睇自己portfolio持有咩幣
-1. /coinlist = 睇成group持有咩幣
-1. /note COIN_NAME MESSAGE = Message + Tag有呢隻既谷友
+1. /buy COIN_NAME = add crypto into personal portfolio
+1. /sell COIN_NAME = remove crypto from personal portfolio
+1. /hold = show personal portfolio
+1. /coinlist = show crypto holding for this chat group
+1. /note COIN_NAME MESSAGE = Send message to groupmate who holding this crypto
 
 # Testing
 If would like to run on local machine, active the code in `main.py` as below:
